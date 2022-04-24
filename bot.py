@@ -1,6 +1,9 @@
+from ast import For, If
 import discord
 from discord.ext import commands
 import json
+import random
+import os
 
 with open('setting.json', mode='r', encoding='utf8') as jfile: #'r'=read(讀取)
     jdata = json.load(jfile)
@@ -18,14 +21,12 @@ async def on_ready():
 #    channel = bot.get_channel(int(jdata['Test_gen_channel']))
 #    await channel.send("有新表情喔!")
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send(f'Ping: {round(bot.latency*1000)}(毫秒)')
-
-@bot.command()
-async def 圖片(ctx):
-    pic = discord.File(jdata['pic1'])
-    await ctx.send(file = pic)
 
 
-bot.run(jdata['TOKEN'])
+
+for Filename in os.listdir('./指令'):#./為相對路徑，也可直接給完整路徑
+    if Filename.endswith('.py'):
+        bot.load_extension(F'指令.{Filename[:-3]}')
+
+if __name__ == "__main__":
+    bot.run(jdata['TOKEN'])
