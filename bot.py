@@ -24,7 +24,7 @@ async def ping(ctx):
 
 @bot.command()
 async def 圖片(ctx):
-    pic = discord.File('C:\\Users\\miran\\OneDrive\\桌面\DD\\python\\dcbot\\圖片\\test_sticker.png')
+    pic = discord.File(jdata['pic1'])
     await ctx.send(file = pic)
 
 
