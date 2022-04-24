@@ -1,5 +1,9 @@
 import discord
 from discord.ext import commands
+import json
+
+with open('setting.json', mode='r', encoding='utf8') as jfile: #'r'=read(讀取)
+    jdata = json.load(jfile)
 
 intents = discord.Intents.all()
 
@@ -11,11 +15,17 @@ async def on_ready():
 
 #@bot.event
 #async def on_guild_emojis_update():
-#    channel = bot.get_channel(966727218048925699)
+#    channel = bot.get_channel(int(jdata['Test_gen_channel']))
 #    await channel.send("有新表情喔!")
 
 @bot.command()
 async def ping(ctx):
     await ctx.send(f'Ping: {round(bot.latency*1000)}(毫秒)')
 
-bot.run('OTY2NzI5NTQyOTU1ODM5NTQ5.YmF_DA.Wp4-l3BJIO8XesXb7TJT8SiU_3E')
+@bot.command()
+async def 圖片(ctx):
+    pic = discord.File('C:\\Users\\miran\\OneDrive\\桌面\DD\\python\\dcbot\\圖片\\test_sticker.png')
+    await ctx.send(file = pic)
+
+
+bot.run(jdata['TOKEN'])
