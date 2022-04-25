@@ -21,12 +21,27 @@ async def on_ready():
 #    channel = bot.get_channel(int(jdata['Test_gen_channel']))
 #    await channel.send("有新表情喔!")
 
+@commands.command()#上傳指令分類
+async def load(ctx, ext):
+    bot.load_extension(f'指令.{ext}')
+    await ctx.send(f'Loaded {ext} done.')
+
+@commands.command()#刪除指令分類
+async def unload(ctx, ext):
+    bot.unload_extension(f'指令.{ext}')
+    await ctx.send(f'Unloaded {ext} done.')
+
+@commands.command()#重啟指令分類
+async def reload(ctx, ext):
+    bot.reload_extension(f'指令.{ext}')
+    await ctx.send(f'Reloaded {ext} done.')
+
 
 
 
 for Filename in os.listdir('./指令'):#./為相對路徑，也可直接給完整路徑
     if Filename.endswith('.py'):
-        bot.load_extension(F'指令.{Filename[:-3]}')
+        bot.load_extension(f'指令.{Filename[:-3]}')
 
 if __name__ == "__main__":
     bot.run(jdata['TOKEN'])
