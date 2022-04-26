@@ -23,19 +23,19 @@ class Main(Cog_ext):
     async def clean(self, ctx, num: int):
         await ctx.channel.purge(limit = num +1)
 
-    @commands.command()
-    async def emd(self, ctx):
-        embed=discord.Embed(title="水滴能幹嘛", url="https://reurl.cc/NAXqLp", color=0x55dbdd, timestamp=datetime.datetime.utcnow())
-        embed.set_author(name="水滴。")
-        embed.set_thumbnail(url="https://i.imgur.com/O6UbyuNh.jpg")
-        embed.add_field(name="水滴聊天 -", value="水滴能回覆的所有訊息", inline=False)
-        embed.add_field(name="水滴指令 -", value="水滴能使用的指令", inline=False)
-        embed.set_footer(text="看三小")
-        await ctx.send(embed=embed)
+    # @commands.command()
+    # async def emd(self, ctx):
+    #     embed=discord.Embed(title="水滴能幹嘛", url="https://reurl.cc/NAXqLp", color=0x55dbdd, timestamp=datetime.datetime.now())
+    #     embed.set_author(name="水滴。")
+    #     embed.set_thumbnail(url="https://i.imgur.com/O6UbyuNh.jpg")
+    #     embed.add_field(name="水滴聊天 -", value="水滴能回覆的所有訊息", inline=False)
+    #     embed.add_field(name="水滴指令 -", value="水滴能使用的指令", inline=False)
+    #     embed.set_footer(text="看三小")
+    #     await ctx.send(embed=embed)
 
-    #@commands.command()
-    #async def clean(self, ctx, num: int):
-    #    if ctx.message.author.server_permissions.administrator:
+    # @commands.command()
+    # async def clean(self, ctx, num: int):
+    #    if ctx.message.author.guild_permissions.administrator:
     #        await ctx.channel.purge(limit = num +1)
     #    else:
     #        await ctx.send('你沒有權限使用此指令')

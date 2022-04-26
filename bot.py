@@ -34,8 +34,8 @@ async def reload(ctx, ext):
     bot.reload_extension(f'指令.{ext}')
     await ctx.send(f'Reloaded {ext} done.')
 
-#@bot.command()#上傳指令分類
-#async def load(ctx, ext):
+# @bot.command()#上傳指令分類
+# async def load(ctx, ext):
 #    if ctx.message.author.id == int(jdata['OWNER']):
 #        bot.load_extension(f'指令.{ext}')
 #        await ctx.send(f'Loaded {ext} done.')
