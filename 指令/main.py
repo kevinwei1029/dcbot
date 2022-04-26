@@ -18,7 +18,7 @@ class Main(Cog_ext):
         await ctx.message.delete()
         await ctx.send(msg)
     
-    @commands.has_permissions(administrator=True)#需要有管理員權限
+    #@commands.has_permissions(administrator=True)#需要有管理員權限
     @commands.command()
     async def clean(self, ctx, num: int):
         await ctx.channel.purge(limit = num +1)

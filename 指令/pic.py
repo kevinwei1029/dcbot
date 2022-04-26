@@ -12,8 +12,7 @@ class Pic(Cog_ext):
     @commands.command()#傳送檔案中的隨機一張圖片
     async def 圖片(self, ctx):
         ran_pic = random.choice(jdata['pic1'])
-        pic = discord.File(ran_pic)
-        await ctx.send(file = pic)
+        await ctx.send(f'{ran_pic}')
 
     @commands.command()#傳送n站網址
     async def n(self, ctx, num, *, tag):
