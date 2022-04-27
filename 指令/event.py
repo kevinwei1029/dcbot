@@ -41,7 +41,7 @@ class Event(Cog_ext):
             await msg.channel.send('一個有些怪功能的人工智障')
 
         if msg.content == '水滴聊天':
-            await msg.channel.send('水滴會回答的話:\npeko, ahoy, 幹, 星爆, 閉嘴, 敲, 運勢, 機油, 舔嘴唇')
+            await msg.channel.send('水滴會回答的話:\npeko, ahoy, 幹, 星爆, 閉嘴, 敲, 運勢, 機油, 舔嘴唇, 不要停下來')
 
         if msg.content == '水滴指令':
             embed=discord.Embed(title="水滴指令", url="https://reurl.cc/q5mWqg", color=0x1E90FF, timestamp=datetime.datetime.now())
@@ -85,6 +85,12 @@ class Event(Cog_ext):
         if msg.content == '敲' or msg.content == '不可以瑟瑟' or msg.content == '不可以色色':
             pic = discord.File("C:\\Users\\miran\\OneDrive\\桌面\\DD\\python\\dcbot\\圖片\\不可以瑟瑟-敲.gif")
             await msg.channel.send(file = pic)
+
+        if msg.content == '3910U':
+            await msg.channel.send("https://cdn.discordapp.com/attachments/966727218048925699/968675140583977040/360_20220427075337.png")
+
+        if msg.content == '不要停下來' or "止まるんじゃねぇぞ" in msg.content:
+            await msg.channel.send("止まるんじゃねぇぞ…\nₘₙⁿ\n▏n\n█▏　､⺍\n█▏ ⺰ʷʷｨ\n█◣▄██◣\n◥██████▋\n　◥████ █▎\n　　███▉ █▎\n　◢████◣⌠ₘ℩\n　　██◥█◣≫\n　　██　◥█◣\n　　█▉　　█▊\n　　█▊　　█▊\n　　█▊　　█▋\n　　 █▏　　█▙\n　　 █")
 
         if msg.content == '運勢':
             name = msg.author.name
