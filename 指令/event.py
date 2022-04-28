@@ -27,6 +27,8 @@ class Event(Cog_ext):
         b_word = ["幹", "淦", "e04", "贛"]
         laugh = ["w", "ww", "www",  "wwww", "wwwww", "xd", "xdd", "xddd", "xdddd", "xddddd", 
         "草", "笑", "kusa"]
+        stan =["bot", "嗶嗶", "機油", "機器人"]
+        nonstop = ["止まるんじゃねぇぞ", "不要停下來"]
 
         if msg.content == '水滴能做啥' or msg.content == '水滴能幹啥' or msg.content == '水滴能幹嘛':
             embed=discord.Embed(title="水滴能幹嘛", url="https://reurl.cc/NAXqLp", color=0x1E90FF, timestamp=datetime.datetime.now())
@@ -54,10 +56,10 @@ class Event(Cog_ext):
             embed.set_footer(text="看三小")
             await msg.channel.send(embed=embed)
 
-        if msg.content in b_word:
+        if msg.content in b_word and msg.author != self.bot.user:
             await msg.channel.send('淦三小\n蛤')
 
-        if msg.content == 'bot' or msg.content == '嗶嗶' or msg.content == '機油' or msg.content == '機器人':
+        if msg.content in stan and msg.author != self.bot.user:
             await msg.channel.send('嗶嗶.ㄐ...機油..好..難...喝')
 
         if msg.content in laugh:
@@ -69,7 +71,7 @@ class Event(Cog_ext):
         elif msg.content.endswith('ahoy') and msg.author != self.bot.user:
             await msg.channel.send('Ahoy!')
         
-        elif '舔' in msg.content or msg.content == '舔嘴唇' and msg.author != self.bot.user:
+        elif msg.content == '舔嘴唇' and msg.author != self.bot.user:
             await msg.channel.send('又舔! 又舔!! 又... 又舔嘴唇!!!')
             await msg.channel.send('https://memeprod.ap-south-1.linodeobjects.com/user-gif-post/1635254538236.gif')
 
@@ -87,9 +89,9 @@ class Event(Cog_ext):
             await msg.channel.send(file = pic)
 
         if msg.content == '3910U':
-            await msg.channel.send("https://cdn.discordapp.com/attachments/966727218048925699/968675140583977040/360_20220427075337.png")
+            await msg.channel.send("https://cdn.discordapp.com/attachments/966727218048925699/968817594415083580/360_20220427181505.png")
 
-        if msg.content == '不要停下來' or "止まるんじゃねぇぞ" in msg.content:
+        if msg.content in nonstop and msg.author != self.bot.user:
             await msg.channel.send("止まるんじゃねぇぞ…\nₘₙⁿ\n▏n\n█▏　､⺍\n█▏ ⺰ʷʷｨ\n█◣▄██◣\n◥██████▋\n　◥████ █▎\n　　███▉ █▎\n　◢████◣⌠ₘ℩\n　　██◥█◣≫\n　　██　◥█◣\n　　█▉　　█▊\n　　█▊　　█▊\n　　█▊　　█▋\n　　 █▏　　█▙\n　　 █")
 
         if msg.content == '運勢':
@@ -104,9 +106,9 @@ class Event(Cog_ext):
             ran_emColor = random.choice(emColor)
             num = random.randrange(1,100)
 
-            embed=discord.Embed(title="抽到的運勢", color=ran_emColor)
+            embed=discord.Embed(title="抽籤結果", color=ran_emColor)
             embed.set_author(name=name)
-            embed.add_field(name="運氣:", value=ran_luck, inline=False)
+            embed.add_field(name="運勢:", value=ran_luck, inline=False)
             embed.add_field(name="幸運色:", value=ran_color, inline=False)
             embed.add_field(name="幸運數字:", value=num, inline=False)
             embed.set_footer(text="隨便亂做。僅供參考")
