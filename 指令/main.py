@@ -1,7 +1,11 @@
 import discord
 from discord.ext import commands
 from 核心.classes import Cog_ext
-import datetime
+import random
+import json
+
+with open('setting.json', mode='r', encoding='utf8') as jfile: #'r'=read(讀取)
+    jdata = json.load(jfile)
 
 class Main(Cog_ext):
 
@@ -18,27 +22,14 @@ class Main(Cog_ext):
         await ctx.message.delete()
         await ctx.send(msg)
     
-    #@commands.has_permissions(administrator=True)#需要有管理員權限
     @commands.command()
     async def clean(self, ctx, num: int):
         await ctx.channel.purge(limit = num +1)
 
-    # @commands.command()
-    # async def emd(self, ctx):
-    #     embed=discord.Embed(title="水滴能幹嘛", url="https://reurl.cc/NAXqLp", color=0x55dbdd, timestamp=datetime.datetime.now())
-    #     embed.set_author(name="水滴。")
-    #     embed.set_thumbnail(url="https://i.imgur.com/O6UbyuNh.jpg")
-    #     embed.add_field(name="水滴聊天 -", value="水滴能回覆的所有訊息", inline=False)
-    #     embed.add_field(name="水滴指令 -", value="水滴能使用的指令", inline=False)
-    #     embed.set_footer(text="看三小")
-    #     await ctx.send(embed=embed)
-
-    # @commands.command()
-    # async def clean(self, ctx, num: int):
-    #    if ctx.message.author.guild_permissions.administrator:
-    #        await ctx.channel.purge(limit = num +1)
-    #    else:
-    #        await ctx.send('你沒有權限使用此指令')
+    @commands.command()
+    async def talk(self, ctx):
+        ran_talk = random.choice(jdata['talk'])
+        await ctx.send(ran_talk)
 
 def setup(bot):
     bot.add_cog(Main(bot))
