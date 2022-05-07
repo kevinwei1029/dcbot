@@ -10,30 +10,28 @@ with open('setting.json', mode='r', encoding='utf8') as jfile: #'r'=read(讀取)
 class Pic(Cog_ext):
 
     @commands.command()#傳送檔案中的隨機一張圖片
-    async def 圖片(self, ctx):
+    async def pic(self, ctx):
         ran_pic = random.choice(jdata['pic1'])
-        await ctx.send(f'{ran_pic}')
+        await ctx.send(f'https://cdn.discordapp.com/attachments/966727218048925699/{ran_pic}')
 
     @commands.command()#傳送n站網址
-    async def n(self, ctx, num, *, tag):
-        num = num
+    async def n(self, ctx, fun, *, tag):
         tag = tag.replace(" ", "-")
-        if isinstance(num, int) == True:
-            await ctx.send(f'https://nhentai.net/g/{num}/')
-        elif num == 'a':
+        if fun == 'n':
+            await ctx.send(f'https://nhentai.net/g/{tag}/')
+        elif fun == 'a':
             await ctx.send(f'https://nhentai.net/artist/{tag}/')
-        elif num == 'c':
+        elif fun == 'c':
             await ctx.send(f'https://nhentai.net/character/{tag}/')
-        elif num == 't':
+        elif fun == 't':
             await ctx.send(f'https://nhentai.net/tag/{tag}/')
-        elif num == 'p':
+        elif fun == 'p':
             await ctx.send(f'https://nhentai.net/parody/{tag}/')
 
 
 
     @commands.command()#傳送p站網址
     async def p(self, ctx, number):
-        number = number
         await ctx.send(f'https://www.pixiv.net/artworks/{number}')
 
 def setup(bot):
