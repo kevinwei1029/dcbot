@@ -12,14 +12,6 @@ class Task(Cog_ext):
         
         self.counter = 0
     
-        # async def interval():
-        #     await self.bot.wait_until_ready()
-        #     self.channel = self.bot.get_channel(int(jdata['Test_gen_channel']))
-        #     while not self.bot.is_closed():
-        #         await self.channel.send('Ok,testing!')
-        #         await asyncio.sleep(10)#延遲為10秒
-
-        # self.bg_task = self.bot.loop.create_task(interval())
 
         async def time_task():
             await self.bot.wait_until_ready()
@@ -30,7 +22,7 @@ class Task(Cog_ext):
                     jdata = json.load(jfile)
                 if now_time == jdata['time'] and self.counter == 0:
                     self.counter = 1
-                    await self.channel.send('Ok,testing!')
+                    await self.channel.send("It's time to play phigros!!")
                     await asyncio.sleep(1)
                 else:    
                     await asyncio.sleep(1)
@@ -51,6 +43,7 @@ class Task(Cog_ext):
         jdata['time'] = time
         with open('setting.json', mode='w', encoding='utf8') as jfile: #'w'=write(寫入)
             json.dump(jdata, jfile, indent = 4)#indent =縮排
+        await ctx.send(f'set time to {time}')
 
     @commands.command()
     async def stop_task(self, ctx):
